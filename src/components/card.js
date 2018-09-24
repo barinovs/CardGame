@@ -10,10 +10,14 @@ class Card extends React.Component{
   }
 
   motion(card, typeOfPlayer) {
-      const { motionPlayer, motionComputer } = this.props;
-      (typeOfPlayer == "player") ?
-      motionPlayer(card) :
-      motionComputer(card)
+      const { motionPlayer, motionComputer, player, computer } = this.props;
+      if (typeOfPlayer == "player") {
+        const newCardsOfPlayer = player.filter( _card => _card.name != card.name )
+        motionPlayer(card, newCardsOfPlayer)
+      }else{
+        const newCardsOfComputer = computer.filter( _card => _card.name != card.name )
+        motionComputer(card, newCardsOfComputer)
+      }
   }
 
   render() {

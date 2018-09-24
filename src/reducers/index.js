@@ -45,11 +45,11 @@ export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case ACTION_MOTION_PLAYER: {
             console.log('action.values.card ' + action.card);
-            return {...state, process: action.payload, cardOnTable1: action.card}
+            return {...state, player: action.newCardsOfPlayer, process: action.payload, cardOnTable1: action.card}
         }
         case ACTION_MOTION_COMPUTER: {
             console.log('action.values.card ' + action.card);
-            return {...state, process: action.payload, cardOnTable2: action.card}
+            return {...state, computer: action.newCardsOfComputer, process: action.payload, cardOnTable2: action.card}
         }
     }
     return state
