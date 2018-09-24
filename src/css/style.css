@@ -1,0 +1,17 @@
+.player {
+  height: 150px;
+}
+
+.playerCard {
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 150px;
+  display: inline-block;
+}
+
+.cardTable {
+    width: 500px;
+    height: 150px;
+    background-color: green;
+    margin: 30px;
+}
