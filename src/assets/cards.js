@@ -89,7 +89,7 @@ const coloda = [
 {
   href: 'img/kr_10.png',
   suit: 4,
-  dignity: 11,
+  dignity: 10,
   name: 'kr_10',
   numOfCard: 0,
   points: 10,
@@ -100,29 +100,29 @@ const coloda = [
 {
   href: 'img/kr_valet.png',
   suit: 4,
-  dignity: 10,
+  dignity: 11,
   name: 'kr_valet',
   numOfCard: 0,
   points: 2,
-  trump : true,
+  trump : false,
   trumpRank: 10
 },
 
 {
   href: 'img/kr_dama.png',
   suit: 4,
-  dignity: 13,
+  dignity: 12,
   name: 'kr_dama',
   numOfCard: 0,
   points: 3,
-  trump : true,
+  trump : false,
   trumpRank: 14
 },
 
 {
   href: 'img/kr_korol.png',
   suit: 4,
-  dignity: 14,
+  dignity: 13,
   name: 'kr_korol',
   numOfCard: 0,
   points: 4,
@@ -133,7 +133,7 @@ const coloda = [
 {
   href: 'img/kr_tuz.png',
   suit: 4,
-  dignity: 12,
+  dignity: 14,
   name: 'kr_tuz',
   numOfCard: 0,
   points: 11,
@@ -236,7 +236,7 @@ const coloda = [
 {
   href: 'img/ch_10.png',
   suit: 2,
-  dignity: 11,
+  dignity: 10,
   name: 'ch_10',
   numOfCard: 0,
   points: 10,
@@ -247,29 +247,29 @@ const coloda = [
 {
   href: 'img/ch_valet.png',
   suit: 2,
-  dignity: 12,
+  dignity: 11,
   name: 'ch_valet',
   numOfCard: 0,
   points: 2,
-  trump : true,
+  trump : false,
   trumpRank: 8
 },
 
 {
   href: 'img/ch_dama.png',
   suit: 2,
-  dignity: 13,
+  dignity: 12,
   name: 'ch_dama',
   numOfCard: 0,
   points: 3,
-  trump : true,
+  trump : false,
   trumpRank: 12
 },
 
 {
   href: 'img/ch_korol.png',
   suit: 2,
-  dignity: 10,
+  dignity: 13,
   name: 'ch_korol',
   numOfCard: 0,
   points: 4,
@@ -280,7 +280,7 @@ const coloda = [
 {
   href: 'img/ch_tuz.png',
   suit: 2,
-  dignity: 12,
+  dignity: 14,
   name: 'ch_tuz',
   numOfCard: 0,
   points: 11,
@@ -354,7 +354,7 @@ const coloda = [
   name: 'bub_7',
   numOfCard: 0,
   points: 0,
-  trump : true,
+  trump : false,
   trumpRank: 1
 },
 
@@ -365,7 +365,7 @@ const coloda = [
   name: 'bub_8',
   numOfCard: 0,
   points: 0,
-  trump : true,
+  trump : false,
   trumpRank: 2
 },
 
@@ -376,7 +376,7 @@ const coloda = [
   name: 'bub_9',
   numOfCard: 0,
   points: 0,
-  trump : true,
+  trump : false,
   trumpRank: 3
 },
 
@@ -387,51 +387,51 @@ const coloda = [
   name: 'bub_10',
   numOfCard: 0,
   points: 10,
-  trump : true,
+  trump : false,
   trumpRank: 5
 },
 
 {
   href: 'img/bub_valet.png',
   suit: 1,
-  dignity: 12,
+  dignity: 11,
   name: 'bub_valet',
   numOfCard: 0,
   points: 2,
-  trump : true,
+  trump : false,
   trumpRank: 7
 },
 
 {
   href: 'img/bub_dama.png',
   suit: 1,
-  dignity: 13,
+  dignity: 12,
   name: 'bub_dama',
   numOfCard: 0,
   points: 3,
-  trump : true,
+  trump : false,
   trumpRank: 11
 },
 
 {
   href: 'img/bub_korol.png',
   suit: 1,
-  dignity: 14,
+  dignity: 13,
   name: 'bub_korol',
   numOfCard: 0,
   points: 4,
-  trump : true,
+  trump : false,
   trumpRank: 4
 },
 
 {
   href: 'img/bub_tuz.png',
   suit: 1,
-  dignity: 11,
+  dignity: 14,
   name: 'bub_tuz',
   numOfCard: 0,
   points: 11,
-  trump : true,
+  trump : false,
   trumpRank: 6
 },
 
@@ -530,7 +530,7 @@ const coloda = [
 {
   href: 'img/vin_10.png',
   suit: 3,
-  dignity: 11,
+  dignity: 10,
   name: 'vin_10',
   numOfCard: 0,
   points: 10,
@@ -541,29 +541,29 @@ const coloda = [
 {
   href: 'img/vin_valet.png',
   suit: 3,
-  dignity: 12,
+  dignity: 11,
   name: 'vin_valet',
   numOfCard: 0,
   points: 2,
-  trump : true,
+  trump : false,
   trumpRank: 9
 },
 
 {
   href: 'img/vin_dama.png',
   suit: 3,
-  dignity: 13,
+  dignity: 12,
   name: 'vin_dama',
   numOfCard: 0,
   points: 3,
-  trump : true,
+  trump : false,
   trumpRank: 13
 },
 
 {
   href: 'img/vin_korol.png',
   suit: 3,
-  dignity: 10,
+  dignity: 13,
   name: 'vin_korol',
   numOfCard: 0,
   points: 4,
@@ -574,7 +574,7 @@ const coloda = [
 {
   href: 'img/vin_tuz.png',
   suit: 3,
-  dignity: 12,
+  dignity: 14,
   name: 'vin_tuz',
   numOfCard: 0,
   points: 11,

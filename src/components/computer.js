@@ -24,7 +24,8 @@ const mapStateToProps = (state) => {
     return {
         coloda: state.coloda,
         player: state.player,
-        computer: state.computer
+        computer: state.computer,
+        trumpSuit: state.trumpSuit
     }
 }
 

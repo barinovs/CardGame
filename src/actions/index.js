@@ -1,7 +1,7 @@
 import { ACTION_MOTION_PLAYER, ACTION_MOTION_COMPUTER } from '../constants/action-types'
 
 export function motionPlayer(values, newCardsOfPlayer) {
-   console.log('values Action' + values.name);
+   // console.log('values Action' + values.name);
     return {
         type: ACTION_MOTION_PLAYER,
         payload: "run",

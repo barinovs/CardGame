@@ -10,6 +10,14 @@ function mySort(arr) {
     var sortArr = arr
 }
 
+function setTrump(arr) {
+    var newArr = arr.map( (card) => {
+        (card.suit == trumpSuit) ? card.trump = true : card.trump = false
+        return card
+    })
+    return newArr;
+}
+
 import cardDeck from '../assets/cards.js'
 
 var cardDeckRandom = cardDeck.sort(compareRandom);
@@ -30,26 +38,43 @@ cardDeck.forEach( (elem, i) => {
 
 cardDeck.splice(0,12);
 
+// Определим козырную масть
+const trumpSuit = cardDeck[0].suit;
+
+//Укажем козырные карты
+player = setTrump(player)
+computer = setTrump(computer)
+
+
 const initialState = {
   cardDeck: cardDeck,
   player: player,
   computer: computer,
   cardOnTable1: {},
   cardOnTable2: {},
-  process: "stop"
+  process: "stop",
+  trumpSuit: trumpSuit
 };
 
 
 export const rootReducer = (state = initialState, action) => {
-    console.log("action.type " + action.type);
+    // console.log("action.type " + action.type);
     switch (action.type) {
         case ACTION_MOTION_PLAYER: {
-            console.log('action.values.card ' + action.card);
-            return {...state, player: action.newCardsOfPlayer, process: action.payload, cardOnTable1: action.card}
+            // console.log('action.values.card ' + action.card);
+            return {...state,
+                        player: action.newCardsOfPlayer,
+                        process: action.payload,
+                        cardOnTable1: action.card
+                    }
         }
         case ACTION_MOTION_COMPUTER: {
-            console.log('action.values.card ' + action.card);
-            return {...state, computer: action.newCardsOfComputer, process: action.payload, cardOnTable2: action.card}
+            // console.log('action.values.card ' + action.card);
+            return {...state,
+                        computer: action.newCardsOfComputer,
+                        process: action.payload,
+                        cardOnTable2: action.card
+                    }
         }
     }
     return state

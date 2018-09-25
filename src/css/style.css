@@ -5,7 +5,7 @@
 .playerCard {
   background-repeat: no-repeat;
   width: 80px;
-  height: 150px;
+  height: 109px;
   display: inline-block;
 }
 
@@ -14,4 +14,9 @@
     height: 150px;
     background-color: green;
     margin: 30px;
+}
+
+.isTrump {
+    border: 2px solid red;
+    border-radius: 10px;
 }
