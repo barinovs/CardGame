@@ -48,8 +48,10 @@ export function computerTakesCards(newCardsOfComputer) {
     }
 }
 
-export function beat() {
+export function beat(beatCards, turn) {
     return {
-        type: ACTION_BEAT
+        type: ACTION_BEAT,
+        beatCards: beatCards,
+        turn: turn
     }
 }

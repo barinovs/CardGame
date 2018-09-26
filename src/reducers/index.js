@@ -58,7 +58,8 @@ const initialState = {
   process: "stop",
   trumpSuit: trumpSuit,
   cardsOnTable: [],
-  beatCards: []
+  beatCards: [],
+  turn: "player"
 };
 
 
@@ -99,7 +100,9 @@ export const rootReducer = (state = initialState, action) => {
         }
         case ACTION_BEAT: {
             return {...state,
-                        cardsOnTable: []
+                        beatCards: action.beatCards,
+                        cardsOnTable: [],
+                        turn: action.turn
             }
         }
     }
