@@ -1,4 +1,9 @@
-import { ACTION_MOTION_PLAYER, ACTION_MOTION_COMPUTER } from '../constants/action-types'
+import { ACTION_MOTION_PLAYER,
+         ACTION_MOTION_COMPUTER,
+         ACTION_REFRESH_CARDS,
+         ACTION_REFRESH_COMPUTER,
+         ACTION_COMPUTER_TAKES_CARDS,
+         ACTION_BEAT } from '../constants/action-types'
 
 // import * as types from '../actions/actionTypes';
 
@@ -50,10 +55,10 @@ const initialState = {
   cardDeck: cardDeck,
   player: player,
   computer: computer,
-  cardOnTable1: {},
-  cardOnTable2: {},
   process: "stop",
-  trumpSuit: trumpSuit
+  trumpSuit: trumpSuit,
+  cardsOnTable: [],
+  beatCards: []
 };
 
 
@@ -65,7 +70,7 @@ export const rootReducer = (state = initialState, action) => {
             return {...state,
                         player: action.newCardsOfPlayer,
                         process: action.payload,
-                        cardOnTable1: action.card
+                        cardsOnTable: action.cardsOnTable
                     }
         }
         case ACTION_MOTION_COMPUTER: {
@@ -73,8 +78,29 @@ export const rootReducer = (state = initialState, action) => {
             return {...state,
                         computer: action.newCardsOfComputer,
                         process: action.payload,
-                        cardOnTable2: action.card
+                        cardsOnTable: action.cardsOnTable
                     }
+        }
+        case ACTION_REFRESH_CARDS: {
+            return {...state,
+                        player: action.newCardsOfPlayer
+            }
+        }
+        case ACTION_REFRESH_COMPUTER: {
+            return {...state,
+                        computer: action.newCardsOfComputer
+            }
+        }
+        case ACTION_COMPUTER_TAKES_CARDS: {
+            return {...state,
+                        cardsOnTable: [],
+                        computer: action.newCardsOfComputer
+            }
+        }
+        case ACTION_BEAT: {
+            return {...state,
+                        cardsOnTable: []
+            }
         }
     }
     return state

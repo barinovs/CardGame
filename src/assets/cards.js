@@ -7,7 +7,8 @@ const coloda = [
 //   numOfCard: 0,
 //   points: 0,
 //   trump : false,
-//   trumpRank: 0
+//   trumpRank: 0,
+//   canMove: true
 // },
 // {
 //   href: 'img/kr_3.png',
@@ -17,7 +18,8 @@ const coloda = [
 //   numOfCard: 0,
 //   points: 0,
 //   trump : false,
-//   trumpRank: 0
+//   trumpRank: 0,
+//   canMove: true
 // },
 //
 // {
@@ -28,7 +30,7 @@ const coloda = [
 //   numOfCard: 0,
 //   points: 0,
 //   trump : false,
-//   trumpRank: 0
+//   trumpRank: 0, canMove: true
 // },
 //
 // {
@@ -39,7 +41,7 @@ const coloda = [
 //   numOfCard: 0,
 //   points: 0,
 //   trump : false,
-//   trumpRank: 0
+//   trumpRank: 0, canMove: true
 // },
 
 {
@@ -50,7 +52,8 @@ const coloda = [
   numOfCard: 0,
   points: 0,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -61,7 +64,8 @@ const coloda = [
   numOfCard: 0,
   points: 0,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -72,7 +76,8 @@ const coloda = [
   numOfCard: 0,
   points: 0,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -83,7 +88,8 @@ const coloda = [
   numOfCard: 0,
   points: 0,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -94,7 +100,8 @@ const coloda = [
   numOfCard: 0,
   points: 10,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -105,7 +112,8 @@ const coloda = [
   numOfCard: 0,
   points: 2,
   trump : false,
-  trumpRank: 10
+  trumpRank: 10,
+  canMove: true
 },
 
 {
@@ -116,7 +124,8 @@ const coloda = [
   numOfCard: 0,
   points: 3,
   trump : false,
-  trumpRank: 14
+  trumpRank: 14,
+  canMove: true
 },
 
 {
@@ -127,7 +136,8 @@ const coloda = [
   numOfCard: 0,
   points: 4,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -138,7 +148,8 @@ const coloda = [
   numOfCard: 0,
   points: 11,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 
@@ -150,7 +161,7 @@ const coloda = [
 //   numOfCard: 0,
 //   points: 0,
 //   trump : false,
-//   trumpRank: 0
+//   trumpRank: 0, canMove: true
 // },
 //
 //
@@ -162,7 +173,7 @@ const coloda = [
 //   numOfCard: 0,
 //   points: 0,
 //   trump : false,
-//   trumpRank: 0
+//   trumpRank: 0, canMove: true
 // },
 //
 //
@@ -174,7 +185,7 @@ const coloda = [
 //   numOfCard: 0,
 //   points: 0,
 //   trump : false,
-//   trumpRank: 0
+//   trumpRank: 0, canMove: true
 // },
 //
 //
@@ -186,7 +197,7 @@ const coloda = [
 //   numOfCard: 0,
 //   points: 0,
 //   trump : false,
-//   trumpRank: 0
+//   trumpRank: 0, canMove: true
 // },
 
 {
@@ -197,7 +208,8 @@ const coloda = [
   numOfCard: 0,
   points: 0,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -208,7 +220,8 @@ const coloda = [
   numOfCard: 0,
   points: 0,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -219,7 +232,8 @@ const coloda = [
   numOfCard: 0,
   points: 0,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -230,7 +244,8 @@ const coloda = [
   numOfCard: 0,
   points: 0,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -241,7 +256,8 @@ const coloda = [
   numOfCard: 0,
   points: 10,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -252,7 +268,8 @@ const coloda = [
   numOfCard: 0,
   points: 2,
   trump : false,
-  trumpRank: 8
+  trumpRank: 8,
+  canMove: true
 },
 
 {
@@ -263,7 +280,8 @@ const coloda = [
   numOfCard: 0,
   points: 3,
   trump : false,
-  trumpRank: 12
+  trumpRank: 12,
+  canMove: true
 },
 
 {
@@ -274,7 +292,8 @@ const coloda = [
   numOfCard: 0,
   points: 4,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -285,7 +304,8 @@ const coloda = [
   numOfCard: 0,
   points: 11,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 
@@ -297,7 +317,7 @@ const coloda = [
 //   numOfCard: 0,
 //   points: 0,
 //   trump : false,
-//   trumpRank: 0
+//   trumpRank: 0, canMove: true
 // },
 //
 //
@@ -309,7 +329,7 @@ const coloda = [
 //   numOfCard: 0,
 //   points: 0,
 //   trump : false,
-//   trumpRank: 0
+//   trumpRank: 0, canMove: true
 // },
 //
 //
@@ -321,7 +341,7 @@ const coloda = [
 //   numOfCard: 0,
 //   points: 0,
 //   trump : false,
-//   trumpRank: 0
+//   trumpRank: 0, canMove: true
 // },
 //
 //
@@ -333,7 +353,7 @@ const coloda = [
 //   numOfCard: 0,
 //   points: 0,
 //   trump : false,
-//   trumpRank: 0
+//   trumpRank: 0, canMove: true
 // },
 
 {
@@ -344,7 +364,8 @@ const coloda = [
   numOfCard: 0,
   points: 0,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -355,7 +376,8 @@ const coloda = [
   numOfCard: 0,
   points: 0,
   trump : false,
-  trumpRank: 1
+  trumpRank: 1,
+  canMove: true
 },
 
 {
@@ -366,7 +388,8 @@ const coloda = [
   numOfCard: 0,
   points: 0,
   trump : false,
-  trumpRank: 2
+  trumpRank: 2,
+  canMove: true
 },
 
 {
@@ -377,7 +400,8 @@ const coloda = [
   numOfCard: 0,
   points: 0,
   trump : false,
-  trumpRank: 3
+  trumpRank: 3,
+  canMove: true
 },
 
 {
@@ -388,7 +412,8 @@ const coloda = [
   numOfCard: 0,
   points: 10,
   trump : false,
-  trumpRank: 5
+  trumpRank: 5,
+  canMove: true
 },
 
 {
@@ -399,7 +424,8 @@ const coloda = [
   numOfCard: 0,
   points: 2,
   trump : false,
-  trumpRank: 7
+  trumpRank: 7,
+  canMove: true
 },
 
 {
@@ -410,7 +436,8 @@ const coloda = [
   numOfCard: 0,
   points: 3,
   trump : false,
-  trumpRank: 11
+  trumpRank: 11,
+  canMove: true
 },
 
 {
@@ -421,7 +448,8 @@ const coloda = [
   numOfCard: 0,
   points: 4,
   trump : false,
-  trumpRank: 4
+  trumpRank: 4,
+  canMove: true
 },
 
 {
@@ -432,7 +460,8 @@ const coloda = [
   numOfCard: 0,
   points: 11,
   trump : false,
-  trumpRank: 6
+  trumpRank: 6,
+  canMove: true
 },
 
 
@@ -444,7 +473,7 @@ const coloda = [
 //   numOfCard: 0,
 //   points: 0,
 //   trump : false,
-//   trumpRank: 0
+//   trumpRank: 0, canMove: true
 // },
 //
 //
@@ -456,7 +485,7 @@ const coloda = [
 //   numOfCard: 0,
 //   points: 0,
 //   trump : false,
-//   trumpRank: 0
+//   trumpRank: 0, canMove: true
 // },
 //
 // {
@@ -467,7 +496,7 @@ const coloda = [
 //   numOfCard: 0,
 //   points: 0,
 //   trump : false,
-//   trumpRank: 0
+//   trumpRank: 0, canMove: true
 // },
 //
 //
@@ -479,7 +508,7 @@ const coloda = [
 //   numOfCard: 0,
 //   points: 0,
 //   trump : false,
-//   trumpRank: 0
+//   trumpRank: 0, canMove: true
 // },
 
 
@@ -491,7 +520,8 @@ const coloda = [
   numOfCard: 0,
   points: 0,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -502,7 +532,8 @@ const coloda = [
   numOfCard: 0,
   points: 0,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -513,7 +544,8 @@ const coloda = [
   numOfCard: 0,
   points: 0,
   trump : false,
-  trumpRank: 9
+  trumpRank: 9,
+  canMove: true
 },
 
 {
@@ -524,7 +556,8 @@ const coloda = [
   numOfCard: 0,
   points: 0,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -535,7 +568,8 @@ const coloda = [
   numOfCard: 0,
   points: 10,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -546,7 +580,8 @@ const coloda = [
   numOfCard: 0,
   points: 2,
   trump : false,
-  trumpRank: 9
+  trumpRank: 9,
+  canMove: true
 },
 
 {
@@ -557,7 +592,8 @@ const coloda = [
   numOfCard: 0,
   points: 3,
   trump : false,
-  trumpRank: 13
+  trumpRank: 13,
+  canMove: true
 },
 
 {
@@ -568,7 +604,8 @@ const coloda = [
   numOfCard: 0,
   points: 4,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 },
 
 {
@@ -579,7 +616,8 @@ const coloda = [
   numOfCard: 0,
   points: 11,
   trump : false,
-  trumpRank: 0
+  trumpRank: 0,
+  canMove: true
 }
 ]
 export default coloda

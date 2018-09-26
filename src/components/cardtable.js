@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import CardOfPlayer from './card'
+import ButtonBeat from './buttonbeat'
 
 class CardTable extends React.Component{
     constructor(props) {
@@ -8,11 +9,19 @@ class CardTable extends React.Component{
     }
 
     render() {
-        const { cardOnTable1, cardOnTable2 } = this.props;
+        const { cardOnTable1, cardOnTable2, cardsOnTable } = this.props;
         return(
             <div className="cardTable">
+                {/*
                 <CardOfPlayer card={cardOnTable1} />
                 <CardOfPlayer card={cardOnTable2} />
+                */}
+                {
+                    cardsOnTable.map( (card, idx) => {
+                    return <CardOfPlayer card={card} key={idx}/>
+                    } )
+                }
+                <ButtonBeat />
             </div>
         )
     }
@@ -20,8 +29,7 @@ class CardTable extends React.Component{
 
 const mapStateToProps = (state) => {
    return {
-       cardOnTable1: state.cardOnTable1,
-       cardOnTable2: state.cardOnTable2
+       cardsOnTable: state.cardsOnTable
    }
 }
 
