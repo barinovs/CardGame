@@ -24,7 +24,14 @@ class Card extends React.Component{
   }
 
   motion(card, typeOfPlayer) {
-      const { motionPlayer, motionComputer, player, computer, refreshPlayerCards, computerTakesCards, turn } = this.props;
+      const { motionPlayer,
+              motionComputer,
+              player,
+              computer,
+              refreshPlayerCards,
+              computerTakesCards,
+              turn,
+              computerCardToKill } = this.props;
   // ============================================================
   // =============== ИГРОК АТАКУЕТ ==============================
   // ============================================================
@@ -103,13 +110,19 @@ class Card extends React.Component{
                 newCardsOfPlayer = setBanToMove(newCardsOfPlayer, cardsOnTable)
                 refreshPlayerCards(newCardsOfPlayer)
             }
-            // ============================================================
-            // =============== ИГРОК ЗАЩИЩАЕТСЯ ===========================
-            // ============================================================
-            else {
-                
-            }
         }
+
+        // ============================================================
+        // =============== ИГРОК ЗАЩИЩАЕТСЯ ===========================
+        // ============================================================
+        else {
+            // определим карты игрока, подходящие для хода
+            var playerSuitables = sortByDignity(findSuitableCards(player, computerCardToKill.suit));
+            // Исправь меня!
+            newCardsOfPlayer = setBanToMove(player, cardsOnTable)
+
+        }
+
     }
 
   render() {
@@ -131,12 +144,13 @@ class Card extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        coloda:       state.coloda,
-        player:       state.player,
-        computer:     state.computer,
-        process:      state.process,
-        cardsOnTable: state.cardsOnTable,
-        turn:         state.turn
+        coloda             : state.coloda,
+        player             : state.player,
+        computer           : state.computer,
+        process            : state.process,
+        cardsOnTable       : state.cardsOnTable,
+        turn               : state.turn,
+        computerCardToKill : state.computerCardToKill
     }
 }
 

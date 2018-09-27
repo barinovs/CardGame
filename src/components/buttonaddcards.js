@@ -2,8 +2,19 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 
-import { refreshPlayerCards, refreshComputerCards, refreshDeckCards, motionComputer } from '../actions/index'
-import { addFromDeck, setTrump, setUnbanToMove, findTrumps, sortByDignity, findSuitableCardStronger, findNotTrumps } from '../assets/functions'
+import { refreshPlayerCards,
+         refreshComputerCards,
+         refreshDeckCards,
+         motionComputer,
+         setComputerCardToKill } from '../actions/index'
+
+import { addFromDeck,
+         setTrump,
+         setUnbanToMove,
+         findTrumps,
+         sortByDignity,
+         findSuitableCardStronger,
+         findNotTrumps } from '../assets/functions'
 
 
 class ButtonAddCards extends React.Component{
@@ -20,7 +31,9 @@ class ButtonAddCards extends React.Component{
                 refreshDeckCards,
                 refreshComputerCards,
                 motionComputer,
-                turn } = this.props;
+                turn,
+                computerCardToKill,
+                setComputerCardToKill } = this.props;
 
         var cardsOnTable = this.props.cardsOnTable;
 
@@ -59,10 +72,11 @@ class ButtonAddCards extends React.Component{
             }
         }
 
-        // если очередь ходить компа, то
+
         var computerTrumps = sortByDignity(findTrumps(_computer));
         var computerNotTrumps = sortByDignity(findNotTrumps(_computer));
         // var suitableCardStronger = findSuitableCardStronger(computerSuitables, card.dignity);
+        // если очередь ходить компа, то
         if (turn == "computer") {
             // если у компа одни козыри
             if (computerTrumps.length == _computer.length) {
@@ -77,6 +91,7 @@ class ButtonAddCards extends React.Component{
                 const newCardsOfComputer = _computer.filter( _card => _card.name != computerNotTrumps[0].name )
                 cardsOnTable = [...cardsOnTable, computerNotTrumps[0]]
                 motionComputer(computerNotTrumps[0], newCardsOfComputer, cardsOnTable)
+                setComputerCardToKill(computerNotTrumps[0])
             }
         }
 
@@ -100,7 +115,8 @@ const mapStateToProps = (state) => {
         computer: state.computer,
         cardDeck: state.cardDeck,
         turn: state.turn,
-        cardsOnTable: state.cardsOnTable
+        cardsOnTable: state.cardsOnTable,
+        computerCardToKill: state.computerCardToKill
     }
 }
 
@@ -109,7 +125,8 @@ const mapDispatchToProps = (dispatch) => {
         refreshPlayerCards: bindActionCreators(refreshPlayerCards, dispatch),
         refreshComputerCards: bindActionCreators(refreshComputerCards, dispatch),
         refreshDeckCards: bindActionCreators(refreshDeckCards, dispatch),
-        motionComputer: bindActionCreators(motionComputer, dispatch)
+        motionComputer: bindActionCreators(motionComputer, dispatch),
+        setComputerCardToKill: bindActionCreators(setComputerCardToKill, dispatch)
     }
 }
 

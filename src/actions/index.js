@@ -4,7 +4,8 @@ import { ACTION_MOTION_PLAYER,
          ACTION_REFRESH_COMPUTER,
          ACTION_COMPUTER_TAKES_CARDS,
          ACTION_BEAT,
-         ACTION_REFRESH_DECK } from '../constants/action-types'
+         ACTION_REFRESH_DECK,
+         ACTION_SET_COMPUTER_CARD_TO_KILL } from '../constants/action-types'
 
 export function motionPlayer(values, newCardsOfPlayer, cardsOnTable) {
    // console.log('values Action' + values.name);
@@ -61,5 +62,12 @@ export function beat(beatCards, turn) {
         type: ACTION_BEAT,
         beatCards: beatCards,
         turn: turn
+    }
+}
+
+export function setComputerCardToKill(computerCardToKill) {
+    return {
+        type: ACTION_SET_COMPUTER_CARD_TO_KILL,
+        computerCardToKill: computerCardToKill
     }
 }
