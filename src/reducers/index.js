@@ -1,9 +1,12 @@
 import { ACTION_MOTION_PLAYER,
          ACTION_MOTION_COMPUTER,
-         ACTION_REFRESH_CARDS,
+         ACTION_REFRESH_PLAYER,
          ACTION_REFRESH_COMPUTER,
          ACTION_COMPUTER_TAKES_CARDS,
-         ACTION_BEAT } from '../constants/action-types'
+         ACTION_BEAT,
+         ACTION_REFRESH_DECK } from '../constants/action-types'
+
+import { setTrump } from '../assets/functions'
 
 // import * as types from '../actions/actionTypes';
 
@@ -15,22 +18,14 @@ function mySort(arr) {
     var sortArr = arr
 }
 
-function setTrump(arr) {
-    var newArr = arr.map( (card) => {
-        (card.suit == trumpSuit) ? card.trump = true : card.trump = false
-        return card
-    })
-    return newArr;
-}
-
 import cardDeck from '../assets/cards.js'
 
-var cardDeckRandom = cardDeck.sort(compareRandom);
+var cardDeckRandom = cardDeck.sort(compareRandom).slice();
 
 var player = new Array();
 var computer = new Array();
 
-cardDeck.forEach( (elem, i) => {
+cardDeckRandom.forEach( (elem, i) => {
   if (i <= 5) {
     player.push(elem);
   }else{
@@ -41,18 +36,19 @@ cardDeck.forEach( (elem, i) => {
 
 } );
 
-cardDeck.splice(0,12);
+cardDeckRandom.splice(0,12);
 
 // Определим козырную масть
-const trumpSuit = cardDeck[0].suit;
+const trumpSuit = cardDeckRandom[0].suit;
 
 //Укажем козырные карты
-player = setTrump(player)
-computer = setTrump(computer)
+player = setTrump(player, trumpSuit)
+computer = setTrump(computer, trumpSuit)
+cardDeckRandom = setTrump(cardDeckRandom, trumpSuit)
 
 
 const initialState = {
-  cardDeck: cardDeck,
+  cardDeck: cardDeckRandom,
   player: player,
   computer: computer,
   process: "stop",
@@ -82,7 +78,7 @@ export const rootReducer = (state = initialState, action) => {
                         cardsOnTable: action.cardsOnTable
                     }
         }
-        case ACTION_REFRESH_CARDS: {
+        case ACTION_REFRESH_PLAYER: {
             return {...state,
                         player: action.newCardsOfPlayer
             }
@@ -90,6 +86,11 @@ export const rootReducer = (state = initialState, action) => {
         case ACTION_REFRESH_COMPUTER: {
             return {...state,
                         computer: action.newCardsOfComputer
+            }
+        }
+        case ACTION_REFRESH_DECK: {
+            return {...state,
+                        cardDeck: action.newDeckCards
             }
         }
         case ACTION_COMPUTER_TAKES_CARDS: {

@@ -44,3 +44,9 @@
     top: 0;
     right: 0;
 }
+
+.buttonAddCards {
+    position: absolute;
+    top: 30px;
+    right: 0;
+}

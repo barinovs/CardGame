@@ -12,7 +12,7 @@ class MainComponent extends React.Component{
       console.log('MainComponent ' + this.props.trumpSuit);
     return(
       <div>
-          <TrumpIndicator trumpSuit={this.props.trumpSuit} />
+          <TrumpIndicator trumpSuit={this.props.trumpSuit} turn={this.props.turn} />
         <Player />
         <br/>
         <CardTable />
@@ -30,7 +30,8 @@ const mapStateToProps = (state) => {
         coloda: state.coloda,
         player1: state.player1,
         player2: state.player2,
-        trumpSuit: state.trumpSuit
+        trumpSuit: state.trumpSuit,
+        turn: state.turn
     }
 }
 

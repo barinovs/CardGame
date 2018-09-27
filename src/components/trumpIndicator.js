@@ -1,7 +1,7 @@
 import React from 'react'
 
-const TrumpIndicator = ({ trumpSuit }) => {
-    console.log('TrumpIndicator ' + trumpSuit);
+const TrumpIndicator = ({ trumpSuit, turn }) => {
+    // console.log('TrumpIndicator ' + trumpSuit);
     var _trump = "";
     switch (trumpSuit) {
         case 1: _trump = "Буби"; break;
@@ -11,7 +11,10 @@ const TrumpIndicator = ({ trumpSuit }) => {
     }
 
     return (
-        <div>Козырь {_trump}</div>
+        <div>
+            <h2>Козырь {_trump}</h2>
+            <h2>Ходит {turn}</h2>
+        </div>
     )
 }
 

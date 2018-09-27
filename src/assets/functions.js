@@ -1,3 +1,11 @@
+export const setTrump = (arr, trumpSuit) => {
+    var newArr = arr.map( (card) => {
+        (card.suit == trumpSuit) ? card.trump = true : card.trump = false
+        return card
+    })
+    return newArr;
+}
+
 function compareDignity(a, b) {
     return a.dignity - b.dignity;
 }
@@ -40,6 +48,15 @@ export const findTrumps = (arr) => {
     return trumps = sortByDignity(trumps)
 }
 
+// Функция поиска НЕкозырных карт
+export const findNotTrumps = (arr) => {
+    return arr.reduce( (notTrumps, card) => {
+        if (!card.trump) return [...notTrumps, card];
+        else return notTrumps
+    }, [] )
+    return notTrumps = sortByDignity(notTrumps)
+}
+
 // Функция поиска карт по масти
 export const findSuitableCards = (arr, suit) => {
     return arr.reduce( (suitables, card) => {
@@ -75,4 +92,30 @@ export const setBanToMove = (arr, cardsOnTable) => {
         return card
     })
     return _arr
+}
+
+// Функция для снятия запрета хода картой
+export const setUnbanToMove = (arr) => {
+    var _arr = arr.map( card => {
+        card.canMove = true
+        return card
+    })
+    return _arr
+}
+
+// Функция добирания карт из колоды
+export const addFromDeck = (arr, deck) => {
+    var returnedArr = []
+    var i = 0
+    while(deck.length > 0 && arr.length < 6) {
+        arr.push(deck[i])
+        i++
+    }
+    deck.splice(0, i)
+
+    returnedArr['arr'] = arr
+    returnedArr['deck'] = deck
+
+    return returnedArr
+
 }

@@ -1,14 +1,16 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import { beat } from '../actions/index'
+import { beat, refreshPlayerCards, refreshComputerCards, refreshDeckCards } from '../actions/index'
+import { addFromDeck, setTrump, setUnbanToMove } from '../assets/functions'
 
 // Что происходит при нажатии на бито:
 // [X] 1. Карты со стола перемещаются в битые карты
-// 2. Происходит смена ходящего
-// 3. Если нужно добираются карты игроков из колоды (первый добирает тот, кто ходил)
-// 4. Карты игроков обновляются
-// 5. Если отбился комп, комп ходит самой слабой картой
+// [X] 2. Происходит смена ходящего
+// [X] 3. Если нужно добираются карты игроков из колоды (первый добирает тот, кто ходил)
+// [X] 4. Карты игроков обновляются
+// [ ] 5. Все карты игроков доступны для хода
+// [ ] 6. Если отбился комп, комп ходит самой слабой картой
 
 class Beat extends React.Component{
     constructor(props) {
@@ -17,28 +19,19 @@ class Beat extends React.Component{
     }
 
     _beat() {
-        const { beat, cardsOnTable, beatCards, player, computer, turn, cardDeck } = this.props;
+        const { cardsOnTable,
+                beatCards,
+                player,
+                computer,
+                turn,
+                cardDeck,
+                trumpSuit,
+                beat } = this.props;
+
         var _beatCards = [...beatCards, ...cardsOnTable]
         var _turn = (turn == "player") ? "computer" : "player";
-        var _player = []
-        var _cardDeck = cardDeck
         beat(_beatCards, _turn);
 
-        // Добирание карт
-        // Если в колоде есть карты
-        if (_cardDeck.length > 0) {
-            // если очередь ходить компа, то добирает игрок
-            if (_turn == "computer") {
-                // пока в колоде есть карты и у игрока менее 6 карт игрок добирает карты
-                var i = 0
-                while(_cardDeck.length > 0 && player.length < 6) {
-                    player.push(_cardDeck[i])
-                    i++
-                }
-                _cardDeck.splice(0, i)
-
-            }
-        }
     }
 
     render() {
@@ -58,13 +51,17 @@ const mapStateToProps = (state) => {
         player: state.player,
         computer: state.computer,
         turn: state.turn,
-        cardDeck: state.cardDeck
+        cardDeck: state.cardDeck,
+        trumpSuit: state.trumpSuit
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        beat: bindActionCreators(beat, dispatch)
+        beat: bindActionCreators(beat, dispatch),
+        refreshPlayerCards: bindActionCreators(refreshPlayerCards, dispatch),
+        refreshComputerCards: bindActionCreators(refreshComputerCards, dispatch),
+        refreshDeckCards: bindActionCreators(refreshDeckCards, dispatch)
     }
 }
 

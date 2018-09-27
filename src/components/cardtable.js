@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import CardOfPlayer from './card'
 import ButtonBeat from './buttonbeat'
+import ButtonAddCards from './buttonaddcards'
 
 class CardTable extends React.Component{
     constructor(props) {
@@ -22,6 +23,7 @@ class CardTable extends React.Component{
                     } )
                 }
                 <ButtonBeat />
+                <ButtonAddCards />
             </div>
         )
     }

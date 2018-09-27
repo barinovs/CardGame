@@ -1,8 +1,10 @@
 import { ACTION_MOTION_PLAYER,
          ACTION_MOTION_COMPUTER,
-         ACTION_REFRESH_CARDS,
+         ACTION_REFRESH_PLAYER,
+         ACTION_REFRESH_COMPUTER,
          ACTION_COMPUTER_TAKES_CARDS,
-         ACTION_BEAT } from '../constants/action-types'
+         ACTION_BEAT,
+         ACTION_REFRESH_DECK } from '../constants/action-types'
 
 export function motionPlayer(values, newCardsOfPlayer, cardsOnTable) {
    // console.log('values Action' + values.name);
@@ -13,7 +15,6 @@ export function motionPlayer(values, newCardsOfPlayer, cardsOnTable) {
         newCardsOfPlayer: newCardsOfPlayer,
         cardsOnTable: cardsOnTable
     };
-
 }
 
 export function motionComputer(values, newCardsOfComputer, cardsOnTable) {
@@ -29,7 +30,7 @@ export function motionComputer(values, newCardsOfComputer, cardsOnTable) {
 
 export function refreshPlayerCards(newCardsOfPlayer) {
     return {
-        type: ACTION_REFRESH_CARDS,
+        type: ACTION_REFRESH_PLAYER,
         newCardsOfPlayer: newCardsOfPlayer
     }
 }
@@ -38,6 +39,13 @@ export function refreshComputerCards(newCardsOfComputer) {
     return {
         type: ACTION_REFRESH_COMPUTER,
         newCardsOfComputer: newCardsOfComputer
+    }
+}
+
+export function refreshDeckCards(newDeckCards) {
+    return {
+        type: ACTION_REFRESH_DECK,
+        newDeckCards: newDeckCards
     }
 }
 
