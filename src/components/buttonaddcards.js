@@ -95,6 +95,9 @@ class ButtonAddCards extends React.Component{
             }
         }
 
+        // Разбаним карты игрока
+        _player = setUnbanToMove(_player)
+        refreshPlayerCards(_player)
 
     }
 

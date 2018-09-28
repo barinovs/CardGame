@@ -32,18 +32,21 @@ class Card extends React.Component{
               computerTakesCards,
               turn,
               computerCardToKill } = this.props;
-  // ============================================================
-  // =============== ИГРОК АТАКУЕТ ==============================
-  // ============================================================
-      if (turn == "player") {
-          // Если картой можно ходить
-          if (card.canMove) {
+
               var dignityes = [];
 
               var cardsOnTable = this.props.cardsOnTable;
 
               var newCardsOfPlayer = player.filter( _card => _card.name != card.name );
               cardsOnTable = [...cardsOnTable, card]
+
+  // ============================================================
+  // =============== ИГРОК АТАКУЕТ ==============================
+  // ============================================================
+      if (turn == "player") {
+          // Если картой можно ходить
+          if (card.canMove) {
+
               motionPlayer(card, newCardsOfPlayer, cardsOnTable)
 
 
@@ -120,9 +123,7 @@ class Card extends React.Component{
             var playerSuitables = sortByDignity(findSuitableCards(player, computerCardToKill.suit));
             // Исправь меня!
             newCardsOfPlayer = setBanToMove(player, cardsOnTable)
-
         }
-
     }
 
   render() {
