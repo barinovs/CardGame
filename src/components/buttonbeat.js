@@ -26,10 +26,17 @@ class Beat extends React.Component{
                 turn,
                 cardDeck,
                 trumpSuit,
-                beat } = this.props;
+                beat,
+                refreshDeckCards,
+                refreshPlayerCards} = this.props;
 
         var _beatCards = [...beatCards, ...cardsOnTable]
         var _turn = (turn == "player") ? "computer" : "player";
+        let newCardDeck = setUnbanToMove(cardDeck)
+        let newPlayerCards = setUnbanToMove(player)
+        refreshDeckCards(newCardDeck)
+        refreshPlayerCards(newPlayerCards)
+
         beat(_beatCards, _turn);
 
     }
@@ -61,7 +68,8 @@ const mapDispatchToProps = (dispatch) => {
         beat: bindActionCreators(beat, dispatch),
         refreshPlayerCards: bindActionCreators(refreshPlayerCards, dispatch),
         refreshComputerCards: bindActionCreators(refreshComputerCards, dispatch),
-        refreshDeckCards: bindActionCreators(refreshDeckCards, dispatch)
+        refreshDeckCards: bindActionCreators(refreshDeckCards, dispatch),
+        setUnbanToMove: bindActionCreators(setUnbanToMove, dispatch)
     }
 }
 

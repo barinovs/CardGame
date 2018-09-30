@@ -79,7 +79,8 @@ export const findDignityes = (arr) => {
     return uniq(dignityes)
 }
 
-// Функция для установки запрета хода картой
+// Функция для установки запрета хода картой при подкидывании
+// Параметры - массив карт игрока, массив карт на столе
 export const setBanToMove = (arr, cardsOnTable) => {
     var _arr = arr.map( card => {
         for (var i=0; i < cardsOnTable.length; i++) {
@@ -88,6 +89,20 @@ export const setBanToMove = (arr, cardsOnTable) => {
             }else{
                 card.canMove = false
             }
+        }
+        return card
+    })
+    return _arr
+}
+
+// Функция для установки запрета хода картой когда отбивается игрока
+export const setBanToMoveForPlayer = (arr, suit, trumpSuit) => {
+    var _arr = arr.map( card => {
+        if (card.suit == suit || card.suit == trumpSuit) {
+            card.canMove = true
+        }
+        else {
+            card.canMove = false
         }
         return card
     })
@@ -118,4 +133,17 @@ export const addFromDeck = (arr, deck) => {
 
     return returnedArr
 
+}
+
+// функция определения карт для подкидвания у компа
+export const findCardForFlipping = (arr, cardsOnTable) => {
+    var dignityesOnTable = findDignityes(cardsOnTable)
+    var _arr = arr.filter( card => {
+        for (var i = 0; i < dignityesOnTable.length; i++) {
+            if (card.dignity == dignityesOnTable[i]) {
+                return true; break
+            }
+        }
+    } )
+    return _arr[0]
 }

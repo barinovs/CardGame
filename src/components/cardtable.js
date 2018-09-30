@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import CardOfPlayer from './card'
 import ButtonBeat from './buttonbeat'
 import ButtonAddCards from './buttonaddcards'
+import ButtonPlayerTakeCards from './buttonPlayerTakeCards'
 
 class CardTable extends React.Component{
     constructor(props) {
@@ -19,11 +20,12 @@ class CardTable extends React.Component{
                 */}
                 {
                     cardsOnTable.map( (card, idx) => {
-                    return <CardOfPlayer card={card} key={idx}/>
+                    return <CardOfPlayer card={card} key={idx}  typeOfPlayer="playerCard"/>
                     } )
                 }
                 <ButtonBeat />
                 <ButtonAddCards />
+                <ButtonPlayerTakeCards />
             </div>
         )
     }

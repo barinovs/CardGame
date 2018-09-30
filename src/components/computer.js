@@ -12,7 +12,7 @@ class Computer extends React.Component{
     return (
       <div className="player">
         {cards.map( (card, idx) => {
-          return <CardOfPlayer card={card} key={idx} typeOfPlayer={"computer"}/>
+          return <CardOfPlayer card={card} key={idx} typeOfPlayer={"computerCard"}/>
       } )
     }
       </div>

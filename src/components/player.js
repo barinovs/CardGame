@@ -11,7 +11,7 @@ class Player extends React.Component{
     return (
       <div className="player">
         {cards.map( (card, idx) => {
-          return <CardOfPlayer card={card} key={idx} typeOfPlayer={"player"} />
+          return <CardOfPlayer card={card} key={idx} typeOfPlayer={"playerCard"} />
       } )
     }
       </div>

@@ -5,7 +5,8 @@ import { ACTION_MOTION_PLAYER,
          ACTION_COMPUTER_TAKES_CARDS,
          ACTION_BEAT,
          ACTION_REFRESH_DECK,
-         ACTION_SET_COMPUTER_CARD_TO_KILL } from '../constants/action-types'
+         ACTION_SET_COMPUTER_CARD_TO_KILL,
+         ACTION_PLAYER_TAKES_CARDS} from '../constants/action-types'
 
 export function motionPlayer(values, newCardsOfPlayer, cardsOnTable) {
    // console.log('values Action' + values.name);
@@ -54,6 +55,13 @@ export function computerTakesCards(newCardsOfComputer) {
     return {
         type: ACTION_COMPUTER_TAKES_CARDS,
         newCardsOfComputer: newCardsOfComputer
+    }
+}
+
+export function playerTakesCards(newCardsOfPlayer) {
+    return {
+        type: ACTION_PLAYER_TAKES_CARDS,
+        newCardsOfPlayer: newCardsOfPlayer
     }
 }
 

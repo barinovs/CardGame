@@ -14,7 +14,10 @@ import { addFromDeck,
          findTrumps,
          sortByDignity,
          findSuitableCardStronger,
-         findNotTrumps } from '../assets/functions'
+         findNotTrumps,
+         findSuitableCards,
+         setBanToMove,
+         setBanToMoveForPlayer} from '../assets/functions'
 
 
 class ButtonAddCards extends React.Component{
@@ -33,7 +36,8 @@ class ButtonAddCards extends React.Component{
                 motionComputer,
                 turn,
                 computerCardToKill,
-                setComputerCardToKill } = this.props;
+                setComputerCardToKill,
+                trumpSuit} = this.props;
 
         var cardsOnTable = this.props.cardsOnTable;
 
@@ -96,8 +100,16 @@ class ButtonAddCards extends React.Component{
         }
 
         // Разбаним карты игрока
-        _player = setUnbanToMove(_player)
-        refreshPlayerCards(_player)
+        let newCardDeck = setUnbanToMove(_cardDeck)
+        let newPlayerCards = setUnbanToMove(_player)
+        refreshDeckCards(newCardDeck)
+        refreshPlayerCards(newPlayerCards)
+        // // определим карты игрока, подходящие для хода
+
+        if (turn == "computer") {
+            var newCardsOfPlayer = setBanToMoveForPlayer(_player, computerNotTrumps[0].suit, trumpSuit)
+            refreshPlayerCards(newCardsOfPlayer)
+        }
 
     }
 
@@ -119,7 +131,8 @@ const mapStateToProps = (state) => {
         cardDeck: state.cardDeck,
         turn: state.turn,
         cardsOnTable: state.cardsOnTable,
-        computerCardToKill: state.computerCardToKill
+        computerCardToKill: state.computerCardToKill,
+        trumpSuit: state.trumpSuit
     }
 }
 

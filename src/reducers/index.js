@@ -5,7 +5,8 @@ import { ACTION_MOTION_PLAYER,
          ACTION_COMPUTER_TAKES_CARDS,
          ACTION_BEAT,
          ACTION_REFRESH_DECK,
-         ACTION_SET_COMPUTER_CARD_TO_KILL } from '../constants/action-types'
+         ACTION_SET_COMPUTER_CARD_TO_KILL,
+         ACTION_PLAYER_TAKES_CARDS} from '../constants/action-types'
 
 import { setTrump } from '../assets/functions'
 
@@ -57,7 +58,8 @@ const initialState = {
   cardsOnTable: [],
   beatCards: [],
   turn: "player",
-  computerCardToKill: {}
+  computerCardToKill: {},
+  disableButtonBeat: false
 };
 
 
@@ -99,6 +101,13 @@ export const rootReducer = (state = initialState, action) => {
             return {...state,
                         cardsOnTable: [],
                         computer: action.newCardsOfComputer
+            }
+        }
+        case ACTION_PLAYER_TAKES_CARDS: {
+            console.log('playerTakesCards');
+            return {...state,
+                        cardsOnTable: [],
+                        player: action.newCardsOfPlayer
             }
         }
         case ACTION_BEAT: {

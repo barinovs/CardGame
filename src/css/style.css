@@ -2,8 +2,14 @@
   height: 150px;
 }
 
-.playerCard {
+.card {
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 109px;
+  display: inline-block;
+}
 
+.computerCard {
   background-repeat: no-repeat;
   width: 80px;
   height: 109px;
@@ -48,5 +54,10 @@
 .buttonAddCards {
     position: absolute;
     top: 30px;
+    right: 0;
+}
+.buttonPlayerTakeCards {
+    position: absolute;
+    top: 60px;
     right: 0;
 }

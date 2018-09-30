@@ -5,7 +5,8 @@ import { motionPlayer,
          motionComputer,
          refreshPlayerCards,
          refreshComputerCards,
-         computerTakesCards } from '../actions/index'
+         computerTakesCards,
+         setComputerCardToKill} from '../actions/index'
 
 import { haveTrump,
          haveSuitableCard,
@@ -14,7 +15,9 @@ import { haveTrump,
          sortByDignity,
          findSuitableCardStronger,
          findDignityes,
-         setBanToMove } from '../assets/functions'
+         setBanToMove,
+         findCardForFlipping,
+         setBanToMoveForPlayer} from '../assets/functions'
 
 
 class Card extends React.Component{
@@ -31,7 +34,9 @@ class Card extends React.Component{
               refreshPlayerCards,
               computerTakesCards,
               turn,
-              computerCardToKill } = this.props;
+              computerCardToKill,
+              trumpSuit,
+              setComputerCardToKill} = this.props;
 
               var dignityes = [];
 
@@ -43,9 +48,9 @@ class Card extends React.Component{
   // ============================================================
   // =============== ИГРОК АТАКУЕТ ==============================
   // ============================================================
-      if (turn == "player") {
+      if (card.canMove) {
           // Если картой можно ходить
-          if (card.canMove) {
+          if (turn == "player") {
 
               motionPlayer(card, newCardsOfPlayer, cardsOnTable)
 
@@ -113,30 +118,55 @@ class Card extends React.Component{
                 newCardsOfPlayer = setBanToMove(newCardsOfPlayer, cardsOnTable)
                 refreshPlayerCards(newCardsOfPlayer)
             }
-        }
+
 
         // ============================================================
         // =============== ИГРОК ЗАЩИЩАЕТСЯ ===========================
         // ============================================================
         else {
-            // определим карты игрока, подходящие для хода
-            var playerSuitables = sortByDignity(findSuitableCards(player, computerCardToKill.suit));
-            // Исправь меня!
-            newCardsOfPlayer = setBanToMove(player, cardsOnTable)
+
+            // Если игрок перебил карту компьютера
+            if (card.dignity > computerCardToKill.dignity || card.suit == trumpSuit) {
+                // если есть карты для подкидывания
+                let cardForFlipping = findCardForFlipping(computer, cardsOnTable)
+                if (cardForFlipping) {
+                    // комп подкидывает карту
+                    const newCardsOfComputer = computer.filter( _card => _card.name != cardForFlipping.name )
+                    cardsOnTable = [...cardsOnTable, cardForFlipping]
+                    motionComputer(cardForFlipping, newCardsOfComputer, cardsOnTable)
+                    setComputerCardToKill(cardForFlipping)
+                    setBanToMoveForPlayer(player, cardForFlipping.suit, trumpSuit)
+                }
+                // иначе (компу нечего подкинуть)
+                else{
+                    // кнопка Бито становится активной
+                    alert('компу нечего подкинуть')
+
+                }
+                motionPlayer(card, newCardsOfPlayer, cardsOnTable)
+
+            }
         }
     }
-
+  }
   render() {
     const { idx, typeOfPlayer, card } = this.props;
-    var _className = "playerCard";
+    var _className = "card " + typeOfPlayer;
+
     (card.trump) ? _className += " isTrump" : _className;
     (card.canMove) ? _className += " canMove" : _className += " noMove";
+    let background = ""
+    if (typeOfPlayer == "playerCard") {
+        background = "url(src/assets/" + card.href +")"
+    }else{
+        background = "url(src/assets/img/casing.png)"
+    }
 
     return(
         <div
             className = {_className}
             onClick = { () => this.motion(card, typeOfPlayer) }
-            style = {{ backgroundImage: "url(src/assets/" + card.href +")" }}>&nbsp;
+            style = {{ backgroundImage: background }}>&nbsp;
         </div>
     )
   }
@@ -151,17 +181,19 @@ const mapStateToProps = (state) => {
         process            : state.process,
         cardsOnTable       : state.cardsOnTable,
         turn               : state.turn,
-        computerCardToKill : state.computerCardToKill
+        computerCardToKill : state.computerCardToKill,
+        trumpSuit          : state.trumpSuit
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        motionPlayer:         bindActionCreators(motionPlayer, dispatch),
-        motionComputer:       bindActionCreators(motionComputer, dispatch),
-        refreshPlayerCards:   bindActionCreators(refreshPlayerCards, dispatch),
-        refreshComputerCards: bindActionCreators(refreshComputerCards, dispatch),
-        computerTakesCards:   bindActionCreators(computerTakesCards, dispatch)
+        motionPlayer:          bindActionCreators(motionPlayer, dispatch),
+        motionComputer:        bindActionCreators(motionComputer, dispatch),
+        refreshPlayerCards:    bindActionCreators(refreshPlayerCards, dispatch),
+        refreshComputerCards:  bindActionCreators(refreshComputerCards, dispatch),
+        computerTakesCards:    bindActionCreators(computerTakesCards, dispatch),
+        setComputerCardToKill: bindActionCreators(setComputerCardToKill, dispatch)
     }
 }
 
