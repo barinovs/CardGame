@@ -2,9 +2,9 @@
 Card game Durak
 
 Еo install you need to type the command
-npm i
+"npm i"
 
 To run you need to type the command
-npm run dev 
+"npm run dev "
 Or
-npm run build
+"npm run build"
